@@ -1,7 +1,14 @@
+import { Header } from "../../components"
 
-
-export const MainPage = () => {
+const MainPage = () => {
     return (
-        <div>Main Page</div>
+        <div>
+            <Header />
+            <div className="container">
+                Main Page
+            </div>
+        </div>
     )
 }
+
+export default MainPage

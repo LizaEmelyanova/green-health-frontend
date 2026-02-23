@@ -1,7 +1,15 @@
+import { Header } from "../../components"
 
 
-export const DetectedPage = () => {
+const DetectedPage = () => {
     return (
-        <div>Detected Page</div>
+        <div>
+            <Header />
+            <div className="container">
+                Detected Page
+            </div>
+        </div>
     )
 }
+
+export default DetectedPage
