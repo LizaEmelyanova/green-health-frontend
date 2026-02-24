@@ -1,4 +1,4 @@
-import { Leaf } from '../../assets/icons'
+import { Leaf } from '@/assets/icons'
 import styles from './style.module.css'
 
 export const Header = () => {

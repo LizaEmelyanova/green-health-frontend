@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import MainPage from './pages/MainPage'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
-import DetectedPage from './pages/DetectedPage'
-import ErrorPage from './pages/ErrorPage'
+import MainPage from '@/pages/MainPage'
+import LoginPage from '@/pages/LoginPage'
+import RegisterPage from '@/pages/RegisterPage'
+import DetectedPage from '@/pages/DetectedPage'
+import ErrorPage from '@/pages/ErrorPage'
 
 function App() {
   return (
