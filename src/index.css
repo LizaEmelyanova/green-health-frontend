@@ -22,10 +22,6 @@
 }
 
 body {
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px; */
   min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;
@@ -46,6 +42,11 @@ button {
   font-weight: 600;
   font-family: "Alexandria", sans-serif;
   cursor: pointer;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
 }
 
 /* a {
