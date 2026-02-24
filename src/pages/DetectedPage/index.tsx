@@ -1,12 +1,11 @@
-import { Header } from "@/components"
-
+import { DetectedInfo, Header } from "@/components"
 
 const DetectedPage = () => {
     return (
         <div>
             <Header />
             <div className="container">
-                Detected Page
+                <DetectedInfo />
             </div>
         </div>
     )
