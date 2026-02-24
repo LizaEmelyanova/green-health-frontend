@@ -16,15 +16,15 @@
   background-color: #FDFDF1;
 }
 
-#root {
-  width: 100vw;
-  height: 100vh;
-}
-
 body {
   min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
 }
 
 .container {
@@ -47,6 +47,7 @@ button {
 h1 {
   font-size: 40px;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* a {

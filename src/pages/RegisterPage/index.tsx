@@ -1,7 +1,11 @@
+import { PageContainer, RegisterForm } from "@/components"
 
 const RegisterPage = () => {
     return (
-        <div>Register Page</div>
+        <PageContainer>
+            <h1 style={{ marginBottom: '50px' }}>Green Health</h1>
+            <RegisterForm />
+        </PageContainer>
     )
 }
 

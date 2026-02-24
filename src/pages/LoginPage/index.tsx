@@ -1,8 +1,11 @@
-import { PageContainer } from "@/components"
+import { LoginForm, PageContainer } from "@/components"
 
 const LoginPage = () => {
     return (
-        <PageContainer>Login Page</PageContainer>
+        <PageContainer>
+            <h1 style={{ marginBottom: '50px' }}>Green Health</h1>
+            <LoginForm />
+        </PageContainer>
     )
 }
 
