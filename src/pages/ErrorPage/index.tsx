@@ -1,8 +1,10 @@
-
+import { PageContainer } from "@/components"
 
 const ErrorPage = () => {
     return (
-        <div>Error Page</div>
+        <PageContainer>
+            Error Page
+        </PageContainer>
     )
 }
 

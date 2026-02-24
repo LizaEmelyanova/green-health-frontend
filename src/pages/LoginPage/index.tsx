@@ -1,8 +1,8 @@
-
+import { PageContainer } from "@/components"
 
 const LoginPage = () => {
     return (
-        <div>Login Page</div>
+        <PageContainer>Login Page</PageContainer>
     )
 }
 

@@ -5,7 +5,7 @@ const MainPage = () => {
     const [file, setFile] = useState<File | null>(null)
 
     return (
-        <div>
+        <>
             <Header />
             <div className="container">
                 <FileInput selectedFile={file} onFileSelect={setFile} />
@@ -16,7 +16,7 @@ const MainPage = () => {
                     Check plant
                 </Button>
             </div>
-        </div>
+        </>
     )
 }
 

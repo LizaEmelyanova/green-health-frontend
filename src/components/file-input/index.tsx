@@ -36,7 +36,7 @@ export const FileInput = ({ selectedFile, onFileSelect }: FileInputProps) => {
             if (file.type.startsWith("image/")) {
                 onFileSelect(file);
             } else {
-                // alert("Пожалуйста, загрузите файл изображения");
+                alert("Please upload the image file");
             }
         }
     };
