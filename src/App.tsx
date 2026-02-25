@@ -13,7 +13,7 @@ function App() {
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<LoginPage />} />
         <Route path='register' element={<RegisterPage />} />
-        <Route path='detected' element={<DetectedPage />} />
+        <Route path='detected/:detectedId' element={<DetectedPage />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
