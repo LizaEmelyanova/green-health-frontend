@@ -12,3 +12,7 @@
 .input::placeholder {
     color: #7EA46F;
 }
+
+.input:focus {
+    background: #7EA46F33;
+}

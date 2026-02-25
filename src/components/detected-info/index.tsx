@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { BackButton } from '../back-button'
 
 import styles from './style.module.css'
 
 export const DetectedInfo = () => {
     const navigate = useNavigate()
+    const { detectedId } = useParams()
 
     return (
         <div className={styles.info_container}>
@@ -17,7 +18,7 @@ export const DetectedInfo = () => {
             </div>
             <div className={styles.detected_instruction}>
                 <h3>Instruction:</h3>
-                <p>{}</p>
+                <p>{`Id: ${detectedId}`}</p>
             </div>
         </div>
     )

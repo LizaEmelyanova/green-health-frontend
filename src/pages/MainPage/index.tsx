@@ -1,8 +1,11 @@
 import { useState } from "react"
 import { Button, FileInput, Header } from "@/components"
+import { useNavigate } from "react-router-dom"
 
 const MainPage = () => {
     const [file, setFile] = useState<File | null>(null)
+
+    const navigate = useNavigate()
 
     return (
         <>
@@ -11,7 +14,7 @@ const MainPage = () => {
                 <FileInput selectedFile={file} onFileSelect={setFile} />
                 <Button
                     isDisabled={!file}
-                    onClick={() => console.log(file?.name)}
+                    onClick={() => navigate('/detected/1')}
                 >
                     Check plant
                 </Button>
