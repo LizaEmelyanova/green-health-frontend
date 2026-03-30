@@ -10,6 +10,7 @@ export const PageContainer = ({ children }: { children: React.ReactNode }) => {
                 color='#7EA46F4D'
                 style={{
                     position: 'absolute',
+                    zIndex: -1,
                     left: '-70px',
                     bottom: '-35px',
                     rotate: '-80deg'
@@ -22,6 +23,7 @@ export const PageContainer = ({ children }: { children: React.ReactNode }) => {
                 color='#7EA46F4D'
                 style={{
                     position: 'absolute',
+                    zIndex: -1,
                     right: '15px',
                     top: '20px',
                     rotate: '-8deg'

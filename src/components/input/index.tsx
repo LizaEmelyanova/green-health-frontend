@@ -4,6 +4,7 @@ interface InputProps {
     type?: string
     placeholder?: string
     value: string
+    disabled: boolean
     onChange: (value: string) => void
 }
 
@@ -11,6 +12,7 @@ export const Input = ({
     type = 'text',
     placeholder,
     value,
+    disabled,
     onChange
 }: InputProps) => {
     return (
@@ -20,6 +22,7 @@ export const Input = ({
             placeholder={placeholder}
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            disabled={disabled}
         />
     )
 }
