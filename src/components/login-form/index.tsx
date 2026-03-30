@@ -90,6 +90,7 @@ export const LoginForm = () => {
                 )}
 
                 <Input
+                    type="password"
                     placeholder="Password"
                     value={passwordValue}
                     onChange={setPasswordValue}

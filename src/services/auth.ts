@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axiosInstance from '@/config/axios'  
 
 const API_URL = 'http://localhost:8000/api'
 
@@ -14,9 +14,9 @@ export interface LoginCredentials {
 }
 
 export interface RegisterData {
+  name: string
   email: string
   password: string
-  name: string
 }
 
 export interface AuthTokens {
@@ -64,16 +64,28 @@ class AuthService {
   }
 
   private setupAxiosInterceptor() {
-    axios.interceptors.request.use(async (config) => {
-      if (this.accessToken && this.isTokenExpiringSoon()) {
-        await this.refreshAccessToken()
+    axiosInstance.interceptors.request.use(
+      async (config) => {
+        // Получаем актуальный токен
+        const token = this.getAccessToken()
+        
+        // Если токен есть и он скоро истечет, обновляем
+        if (token && this.isTokenExpiringSoon()) {
+          await this.refreshAccessToken()
+        }
+        
+        // Берем обновленный токен
+        const freshToken = this.getAccessToken()
+        if (freshToken) {
+          config.headers.Authorization = `Bearer ${freshToken}`
+        }
+        
+        return config
+      },
+      (error) => {
+        return Promise.reject(error)
       }
-      
-      if (this.accessToken) {
-        config.headers.Authorization = `Bearer ${this.accessToken}`
-      }
-      return config
-    })
+    )
   }
 
   private isTokenExpiringSoon(): boolean {
@@ -86,7 +98,7 @@ class AuthService {
     if (!this.refreshToken) return false
     
     try {
-      const response = await axios.post<AuthTokens>(`${API_URL}/refresh`, {
+      const response = await axiosInstance.post<AuthTokens>(`${API_URL}/refresh`, {
         refresh_token: this.refreshToken
       })
       
@@ -100,11 +112,11 @@ class AuthService {
 
   async login(credentials: LoginCredentials): Promise<User> {
     try {
-      const response = await axios.post<AuthTokens>(`${API_URL}/login`, credentials)
+      const response = await axiosInstance.post<AuthTokens>(`${API_URL}/login`, credentials)
       this.saveTokens(response.data)
       
       // Получаем информацию о пользователе
-      const userResponse = await axios.get<User>(`${API_URL}/me`, {
+      const userResponse = await axiosInstance.get<User>(`${API_URL}/me`, {
         headers: { Authorization: `Bearer ${this.accessToken}` }
       })
       
@@ -117,8 +129,7 @@ class AuthService {
 
   async register(data: RegisterData): Promise<User> {
     try {
-      await axios.post<User>(`${API_URL}/register`, data)
-      // После регистрации автоматически логинимся
+      const registerResponse = await axiosInstance.post<User>(`${API_URL}/register`, data)
       return this.login({ email: data.email, password: data.password })
     } catch (error: any) {
       throw this.handleError(error)
@@ -128,7 +139,7 @@ class AuthService {
   async logout(): Promise<void> {
     if (this.accessToken) {
       try {
-        await axios.post(`${API_URL}/logout`, {}, {
+        await axiosInstance.post(`${API_URL}/logout`, {}, {
           headers: { Authorization: `Bearer ${this.accessToken}` }
         })
       } catch (error) {

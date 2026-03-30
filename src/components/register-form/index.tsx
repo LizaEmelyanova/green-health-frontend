@@ -117,6 +117,7 @@ export const RegisterForm = () => {
                     value={passwordValue}
                     onChange={setPasswordValue}
                     disabled={isLoading}
+                    type="password"
                 />
                 {fieldErrors.password && (
                   <p className="mt-1 text-sm text-red-600">{fieldErrors.password}</p>
@@ -127,6 +128,7 @@ export const RegisterForm = () => {
                     value={confirmPassword}
                     onChange={setConfirmPassword}
                     disabled={isLoading}
+                    type="password"
                 />
             </form>
             <div className={styles.register_form_btns}>
