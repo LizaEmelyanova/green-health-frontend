@@ -15,9 +15,16 @@
 
 .detected_img {
     height: 500px;
+    width: 600px;
     border-radius: 20px;
     border: 2px solid #7EA46F;
     overflow: hidden;
+    object-fit: contain;
+}
+
+.detected_img img {
+    height: 500px;
+    width: 600px;
 }
 
 .detected_instruction {
